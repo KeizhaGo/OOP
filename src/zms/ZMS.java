@@ -40,10 +40,15 @@ public class ZMS {
             input.nextLine(); 
             switch (choice) {//codes for the choices
                 case 1 -> {
-                    System.out.print("Enter the only the number of animal type you want to add (1.Mammal/2.Fish/3.Bird): ");
+                    System.out.print("Type of Animal you want to Add;");
+                    System.out.print("1. Bird");
+                    System.out.print("2. Fish");
+                    System.out.print("3. Mammal");
+                    System.out.print("4. Reptile");;
+                    System.out.print("Enter your choice: ");
                     int type = input.nextInt();
                     input.nextLine();
-                    System.out.print("Give it a name:");
+                    System.out.print("Enter name:");
                     String name = input.nextLine();
                     System.out.print("Enter age:");
                     int age = input.nextInt();
@@ -51,20 +56,25 @@ public class ZMS {
                     System.out.print("Enter weight:");
                     double weight = input.nextDouble();
                     input.nextLine();
+                    
                     Animal animal;
                     switch (type) {//codes for creating the animal preferred by da user
                         case 1 -> {
-                            animal = new Mammal(name, age, weight);
-                            savannah.addAnimal(animal);
-                    }
+                            animal = new Bird(name, age, weight);
+                            aviary.addAnimal(animal);                    }
                         case 2 -> {
                             animal = new Fish(name, age, weight);
                             aquarium.addAnimal(animal);
                     }
                         case 3 -> {
-                            animal = new Bird(name, age, weight);
-                            aviary.addAnimal(animal);
+                            animal = new Mammal(name, age, weight);
+                            savannah.addAnimal(animal);
                     }
+                        case 4 -> {
+                            animal = new Reptile (name, age, weight);
+                            savannah.addAnimal(animal);
+                    }
+  
                         default -> {
                             System.out.println("Invalid animal type.");
                             continue;
@@ -115,7 +125,7 @@ public class ZMS {
                 }
                 default -> System.out.println("input invalid. Please try again.");
             }
-            //codes for the choices
+
                     }
     }
  }
